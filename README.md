@@ -4,8 +4,8 @@ A containerized implementation of the "Koumokuyou" method for Nuclear Mitochondr
 
 ## Original References
 This pipeline implements the method described in:
-* [cite_start]**Paper**: [Wei et al., 2025 (BioRxiv)](https://www.biorxiv.org/content/10.1101/2025.03.14.643190v2.full) [cite: 1]
-* [cite_start]**Original Code**: [Koumokuyou/NUMTs GitHub](https://github.com/Koumokuyou/NUMTs/tree/main) [cite: 1]
+* **Paper**: [Wei et al., 2025 (BioRxiv)](https://www.biorxiv.org/content/10.1101/2025.03.14.643190v2.full)
+* **Original Code**: [Koumokuyou/NUMTs GitHub](https://github.com/Koumokuyou/NUMTs/tree/main)
 
 ## Features
 * **Self-Contained**: Includes all dependencies (LAST, bedtools, custom scripts).
