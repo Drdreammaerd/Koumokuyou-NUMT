@@ -16,4 +16,4 @@ This pipeline implements the method described in:
 
 ### 1. Pull from Docker Hub
 ```bash
-docker pull dreammaerd/last-train:v3
+docker pull dreammaerd/last-train:v4
