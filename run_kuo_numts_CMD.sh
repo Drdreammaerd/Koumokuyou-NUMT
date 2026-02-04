@@ -54,6 +54,7 @@ fi
 
 ## 1. Define Paths
 REF_DIR="${NUMT_REF_DIR:-/opt/ref}"
+MITO_DNA="$REF_DIR/chrM.fa"
 MITO_PROT="$REF_DIR/mito_proteins.fa"
 RRNA_BED="$REF_DIR/hg38_rRNA.bed"
 

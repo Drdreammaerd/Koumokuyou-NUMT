@@ -73,6 +73,7 @@ COPY ref/chrM.fa \
      /opt/ref/
 
 # C. Copy the custom script to /usr/local/bin so it is executable from anywhere
+RUN echo "Update run_kuo_numts_CMD.sh"
 COPY run_kuo_numts_CMD.sh /usr/local/bin/run_kuo_numts_CMD.sh
 
 # D. Make the script executable
