@@ -3,7 +3,7 @@
 #   Updated: 2026-01-28
 #
 #   Builds:
-#   - Linux (amd64): docker buildx build --platform linux/amd64 -t dreammaerd/last-train:v4 --load .
+#   - Linux (amd64): docker buildx build --platform linux/amd64 --no-cache -t dreammaerd/last-train:v4 --load .
 #
 #   Example Run:
 #   - Local: docker run -it --rm --platform linux/amd64 -v $(pwd):/data dreammaerd/last-train:v4 /bin/bash
