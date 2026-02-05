@@ -3,10 +3,10 @@
 #   Updated: 2026-01-28
 #
 #   Builds:
-#   - Linux (amd64): docker buildx build --platform linux/amd64 --no-cache -t dreammaerd/last-train:v4 --load .
+#   - Linux (amd64): docker buildx build --platform linux/amd64 --no-cache -t dreammaerd/last-train:v5 --load .
 #
 #   Example Run:
-#   - Local: docker run -it --rm --platform linux/amd64 -v $(pwd):/data dreammaerd/last-train:v4 /bin/bash
+#   - Local: docker run -it --rm --platform linux/amd64 -v $(pwd):/data dreammaerd/last-train:v5 /bin/bash
 # ============================================================
 FROM ubuntu:20.04
 
@@ -59,31 +59,24 @@ RUN git clone https://github.com/Koumokuyou/NUMTs.git && \
     cp NUMTs/bin/* /usr/local/bin/ && \
     rm -rf NUMTs
 
-# =======================================================
-# 6. Install CUSTOM Script and References (NEW SECTION)
-# =======================================================
+# 6 Install Python Libraries
+RUN pip3 install --no-cache-dir \
+    pandas \
+    numpy
 
-# A. Create a directory for reference files
+# 7. Install CUSTOM Script and References
 RUN mkdir -p /opt/ref
-
-# B. Copy the reference files from your local 'Kou_NUMT' folder to the container
 COPY ref/chrM.fa \
      ref/hg38_rRNA.bed \
      ref/mito_proteins.fa \
      /opt/ref/
 
-# C. Copy the custom script to /usr/local/bin so it is executable from anywhere
+# Copy the custom script to /usr/local/bin so it is executable from anywhere
 COPY run_kuo_numts_CMD.sh /usr/local/bin/run_kuo_numts_CMD.sh
-
-# D. Make the script executable
 RUN chmod +x /usr/local/bin/run_kuo_numts_CMD.sh
 
-# E. Set the Environment Variable so the script knows where /opt/ref is
+# Set the Environment Variable so the script knows where /opt/ref is
 ENV NUMT_REF_DIR="/opt/ref"
-
-# =======================================================
-
-# 7. Set Path
 ENV PATH="/usr/local/bin:${PATH}"
 
 WORKDIR /data
